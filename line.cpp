@@ -9,9 +9,9 @@ using namespace std;
 Line::Line()
 {
     //we start an incomplete line!
-    _complete = false;
     _ex = -1;
     _ey = -1;
+    pointCount = 0;
 }
 
 
@@ -25,9 +25,9 @@ Line::display()
     }
 
     //the line is complete!  Draw it!
-    double px=ex(), py=ey();  //the current points
+    double px=x(), py=y();  //the current points
     int steps;  //the number of steps needed to draw the line
-    int dx, dy; //deltas for x and y
+    double dx, dy; //deltas for x and y
 
     //work out the number of points along the line and the deltas
     dx = ex() - x();
@@ -43,7 +43,7 @@ Line::display()
     cout << cursorPosition(ex(), ey()) << "#";
 
     //and now we'll connect them!
-    while(--steps) {
+    while(steps--) {
 	// print the point and update to the next position
 	cout << cursorPosition(int(px), int(py)) << "#";
 	px += dx;
@@ -65,7 +65,7 @@ Line::handleEvent(Event *e)
 bool
 Line::isComplete()
 {
-    return _complete;
+    return pointCount == 2;
 }
 
 
@@ -77,9 +77,18 @@ Line::addPoint(int _x, int _y)
     if(isComplete()) return;
 
     //set the endpoint and mark ourselves complete
-    _ex = _x;
-    _ey = _y;
-    _complete = true;
+    if(pointCount == 0) {
+	//set the first end point
+	x(_x);
+	y(_y);
+    } else {
+	_ex = _x;
+	_ey = _y;
+    }
+
+    //we added a point!
+    pointCount++;
+    
 }
 
 
