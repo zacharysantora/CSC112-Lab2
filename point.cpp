@@ -13,6 +13,7 @@ Point::Point()
 
 void Point::display()
 {
+    if(!isComplete()) return; //don't display an incomplete point
     cout << cursorPosition(x(), y()) << "*";
 }
 
