@@ -1,12 +1,13 @@
 CC=g++
 CXXFLAGS=--std=c++11 -g
 WIDGET_LIB=widget.o term.o application.o keystream.o
-SHAPE_LIB=point.o
+SHAPE_LIB=point.o line.o
 TARGETS=shapes
 
 all: $(TARGETS)
 shapes: shapes.o canvas.o $(WIDGET_LIB) $(SHAPE_LIB)
 point.o: point.h point.cpp
+line.o: line.cpp line.h
 widget.o: widget.h widget.cpp
 term.o: term.h termmanip.h term.cpp
 application.o: application.h application.cpp
