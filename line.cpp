@@ -54,6 +54,12 @@ Line::display()
 }
 
 
+void
+Line::handleEvent(Event *e)
+{
+}
+
+
 //Returns true if the shape is complete
 bool
 Line::isComplete()
