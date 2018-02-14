@@ -20,8 +20,8 @@ public:
     virtual int ex();
     virtual int ey();
 private:
-    bool _complete;
     int _ex, _ey;
+    int pointCount;
 };
 
 #endif
