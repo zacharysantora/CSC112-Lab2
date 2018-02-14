@@ -57,6 +57,7 @@ Line::display()
 void
 Line::handleEvent(Event *e)
 {
+    //do nothing
 }
 
 
