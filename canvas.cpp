@@ -4,6 +4,7 @@
 #include "canvas.h"
 #include "term.h"
 #include "point.h"
+#include "line.h"
 
 using namespace std;
 
@@ -63,11 +64,16 @@ Canvas::handleEvent(Event *e)
                 cursorAddPoint();
             }
             break;
+	case 'l':
+	case 'L':
+	    if(working == nullptr) {
+		working = new Line();
+		cursorAddPoint();
+	    }
         case ESC:
             if(_parent) ((Application*)_parent)->running(false);
             break;
         }
-
         display();
     }
 }
