@@ -70,6 +70,7 @@ Canvas::handleEvent(Event *e)
 		working = new Line();
 		cursorAddPoint();
 	    }
+	    break;
         case ESC:
             if(_parent) ((Application*)_parent)->running(false);
             break;
