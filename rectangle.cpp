@@ -11,6 +11,9 @@
 using namespace std;
 Rectangle::Rectangle()
 {
+		x1 = -1;
+		y1 = -1;
+		pointCount = 0;
 }
 
 void Rectangle::display()
@@ -19,24 +22,40 @@ void Rectangle::display()
     {
         return;
     }
-    
+
     Line l1,l2,l3,l4;
     l1.addPoint(x1,y1);
     l1.addPoint(x2,y2);
     l1.display();
-    
+
     l2.addPoint(x1,y1)
-    
+
 }
-//when user presses r = x1,y1 coordinate
-//when user presses r again = x2,y2 coordinate
 
+bool
+Rectangle::isComplete()
+{
+	return pointCount == 2
+}
 
+void
+Rectangle::addPoint(int_x, int _y)
+{
+	//dont add to a completed line
+	if(isComplete()) return;
 
-//line function (x1,y1) to (x1,y2)
-//line function (x1,y2) to (x2,y2)
-//line function (x2,y2) to (x2,y1)
-//line function (x2,y2) to (x1,y1)
-
-//return 0;
+	//set endpoint and mark complete
+	if(pointCount == 0){
+		//set the first end point
+		x1 = _x;
+		y1 = _y;
+		pointCount++;
+	}
+	else {
+		//set the second end point
+		x2 = _x;
+		y2 = _y;
+	}
+	return 0;
+}
 
