@@ -40,6 +40,9 @@ void Rectangle::display()
 void
 Rectangle::handleEvent(Event *e)
 {
+<<<<<<< HEAD
+    
+=======
     //do nothing
 }
 
@@ -69,4 +72,9 @@ Rectangle::addPoint(int_x, int _y)
 	}
 	
 }
+<<<<<<< HEAD
 return 0;
+=======
+
+>>>>>>> 63d1e1a5a5fb6e9275f3b88d23e84f9f23dafae4
+>>>>>>> 6bbde798463e8db0bb63a4961c584d66bb5af933
