@@ -1,0 +1,1 @@
+//Rectangle class, draw a rectangle based on 2 points
