@@ -65,7 +65,7 @@ Canvas::handleEvent(Event *e)
                 cursorAddPoint();
             }
             break;
-		case 'r'
+            case 'r':
 			if(working == nullptr){
 				working == new Rectangle();
 				cursorAddPoint();

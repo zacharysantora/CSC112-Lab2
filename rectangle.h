@@ -8,7 +8,7 @@ class Rectangle : public Shape
     //default constructor
         Rectangle(); //public constuctor
 
-        virtual void addPoint(int_x, int_y);
+            virtual void addPoint(int _x, int _y);
 
 
         virtual void display();
