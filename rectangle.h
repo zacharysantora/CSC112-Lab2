@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 class Rectangle : public Shape
 {
 public:
@@ -20,3 +21,6 @@ int x2,y2
 int pointCount;
 };
 #endif
+=======
+//Rectangle class, draw a rectangle based on 2 points
+>>>>>>> 4fa78b5c061dd2ae96985f5c92fc3dc023fd5e2f

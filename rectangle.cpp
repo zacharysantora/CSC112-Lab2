@@ -1,3 +1,8 @@
+<<<<<<< HEAD
+=======
+//makes a rectangle
+
+>>>>>>> 4fa78b5c061dd2ae96985f5c92fc3dc023fd5e2f
 #include iostream
 #include "point.h"
 #include "rectangle.h"
@@ -29,7 +34,7 @@ void Rectangle::display()
 
 
 //line function (x1,y1) to (x1,y2)
-//line function (x1,y2) to (x2,y2) 
+//line function (x1,y2) to (x2,y2)
 //line function (x2,y2) to (x2,y1)
 //line function (x2,y2) to (x1,y1)
 
