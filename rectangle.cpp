@@ -1,4 +1,7 @@
+<<<<<<< HEAD
 //makes a rectangle
+=======
+>>>>>>> e63c42eb2f23155fb5cfeb8cf8f06b0c9db8216d
 #include iostream
 #include "point.h"
 #include "rectangle.h"
@@ -16,8 +19,12 @@ l1.addPoint(x2,y1);
 l1.addPoint(x2,y2);
 
 //line function (x1,y1) to (x1,y2)
-//line function (x1,y2) to (x2,y2) 
+//line function (x1,y2) to (x2,y2)
 //line function (x2,y2) to (x2,y1)
 //line function (x2,y2) to (x1,y1)
 
 //return 0;
+<<<<<<< HEAD
+=======
+
+>>>>>>> e63c42eb2f23155fb5cfeb8cf8f06b0c9db8216d
