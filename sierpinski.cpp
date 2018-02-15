@@ -2,6 +2,8 @@
 #include "sierpinski.h"
 #include "term.h"
 
+using namespace std;
+
 Sierpinski::Sierpinski()
 {
     //initially we have no where to go!
@@ -89,13 +91,5 @@ Something like this:
 void
 Sierpinski::generate()
 {
-    //First we work out how wide this will be. and find the center
-    int cols=rowCount;
-    if(cols % 2 == 0) {
-	cols++;
-    }
-    int center = cols/2 + 1;
-    
-
     
 }
