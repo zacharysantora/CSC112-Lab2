@@ -23,10 +23,10 @@ void Rectangle::display()
 
     Line l1,l2,l3,l4;
     l1.addPoint(x1,y1);
-    l1.addPoint(x2,y2);
+    l1.addPoint(x1,y2);
     l1.display();
 
-    l2.addPoint(x1,y1);
+    l2.addPoint(x1,y2);
     l2.addPoint(x2,y2);
     l2.display();
 
@@ -34,7 +34,7 @@ void Rectangle::display()
     l3.addPoint(x2,y1);
     l3.display();
 
-    l4.addPoint(x2,y2);
+    l4.addPoint(x2,y1);
     l4.addPoint(x1,y1);
     l4.display();
 
@@ -64,13 +64,16 @@ Rectangle::addPoint(int _x, int _y)
 		x1 = _x;
 		y1 = _y;
 		pointCount++;
+        
 	}
 	else {
 		//set the second end point
 		x2 = _x;
 		y2 = _y;
+        pointCount++;
+            
+        
 	}
 	
-}
-
+};
 

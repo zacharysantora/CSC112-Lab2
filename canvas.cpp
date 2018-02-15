@@ -38,52 +38,53 @@ Canvas::display()
 void
 Canvas::handleEvent(Event *e)
 {
-    KeyboardEvent *kb;
+	KeyboardEvent *kb;
 
-    if(e->type() == "keyboard") {
-        kb = (KeyboardEvent*) e;
-        switch(kb->key()) {
-        case UP:
-            cursorUp();
-            break;
-        case DOWN:
-            cursorDown();
-            break;
-        case LEFT:
-            cursorLeft();
-            break;
-        case RIGHT:
-            cursorRight();
-            break;
-        case ENTER:
-            cursorAddPoint();
-            break;
-        case 'p':
-        case 'P':
-            if(working == nullptr) {
-                working = new Point();
-                cursorAddPoint();
-            }
-            break;
-            case 'r':
-			if(working == nullptr){
-				working == new Rectangle();
-				cursorAddPoint();
-			}
+	if(e->type() == "keyboard") {
+		kb = (KeyboardEvent*) e;
+		switch(kb->key()) {
+			case UP:
+				cursorUp();
 				break;
-	case 'l':
-	case 'L':
-	    if(working == nullptr) {
-		working = new Line();
-		cursorAddPoint();
-	    }
-	    break;
-        case ESC:
-            if(_parent) ((Application*)_parent)->running(false);
-            break;
-        }
-        display();
-    }
+			case DOWN:
+				cursorDown();
+				break;
+			case LEFT:
+				cursorLeft();
+				break;
+			case RIGHT:
+				cursorRight();
+				break;
+			case ENTER:
+				cursorAddPoint();
+				break;
+			case 'p':
+			case 'r':
+			case 'R':
+				if(working == nullptr) {
+					working = new Rectangle();
+					cursorAddPoint();
+				}
+				break;
+			case 'P':
+				if(working == nullptr) {
+					working = new Point();
+					cursorAddPoint();
+				}
+				break;
+			case 'l':
+			case 'L':
+				if(working == nullptr) {
+					working = new Line();
+					cursorAddPoint();
+				}
+				break;
+			case ESC:
+				if(_parent) ((Application*)_parent)->running(false);
+				break;
+		}
+		display();
+	}
 }
 
 
