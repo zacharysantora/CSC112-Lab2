@@ -44,7 +44,7 @@ Line::display()
 
     //and now we'll connect them!
     while(steps--) {
-	// print the point and update to the next position
+	//print the point and update to the next position
 	cout << cursorPosition(int(px), int(py)) << "#";
 	px += dx;
 	py += dy;
