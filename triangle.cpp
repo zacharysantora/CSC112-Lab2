@@ -1,27 +1,30 @@
 #include <iostream>
 #include <iomanip>
-#include "application.h"
-#include "canvas.h"
-#include "term.h"
-#include "point.h"
-#include "line.h"
+#include <cmath>
+#include "triangle.h"
 
-using namespace std:
+using namespace std;
 
-int main {
+triangle::triangle(){
+    //where does it start
+    dy = 0;
+    dx = 0;
     
-    //Variables
-    int l;
-    int h;
+}
+
+void tirangle::length() {
     
-    Line::display
-    /* Print out the line 
+   //steps = int(sqrt(pow(dx, 2) + pow(dy, 2)));
+}
+void triangle::display(){
+            // display the triangle
+
+}
+
+void triangle::addpoint(){
     
-    
-    set the hieght
-    
-    
-    Set width 
-    l = sqrt((1/2l)^2 + (h)^2)
-    
+}
+
+
+        return 0;
 }
