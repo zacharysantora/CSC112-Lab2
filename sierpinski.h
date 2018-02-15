@@ -22,9 +22,10 @@ public:
     virtual void addPoint(int _x, int _y);
   
 private:
-    std::vector<vector<bool>> rows;
+    std::vector<std::vector<bool>> rows;
     int dy;
     int pointCount;
+    int rowCount;
 };
 
 #endif
