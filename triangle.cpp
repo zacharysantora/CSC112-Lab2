@@ -10,8 +10,8 @@ using namespace std;
 
 triangle::triangle(){
     //where does it start
-    x1 = 0;
-    y1 = 0;
+    x1 = -1;
+    y1 = -1;
     pointCount = 0;
 }
 
@@ -47,14 +47,14 @@ void triangle::addPoint(int _x, int _y){
     if(isComplete()) return;
     
     if(pointCount == 0) {
-        x1 =(_x);
-        y1 =(_y);
+        x1 =_x;
+        y1 =_y;
         cout << x1 << "*" << y1 << endl;
     } else if (pointCount == 1) {
-        x2 = (_x);
-        y2 = (_y);
+        x2 = _x;
+        y2 = _y;
         cout << x2 << "*" << y2 << endl;
-    } else if (pointCounter == 2) {
+    } else if (pointCount == 2) {
         dy = y2 - y1;
         l = sqrt(2*(pow(dy,2)));
         x3 = .5 * l;
