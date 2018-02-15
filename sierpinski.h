@@ -10,21 +10,21 @@
 class Sierpinski : public Shape
 {
 public:
-  //constructor
-  Sierpinski();
+    //constructor
+    Sierpinski();
 
-  //required widget functions
-  virtual void display();
-  virtual void handleEvent(Event *e);
+    //required widget functions
+    virtual void display();
+    virtual void handleEvent(Event *e);
 
-  //required shape function
-  virtual bool isComplete();
-  virtual void addPoint(int _x, int _y);
+    //required shape function
+    virtual bool isComplete();
+    virtual void addPoint(int _x, int _y);
   
 private:
-  std::vector<bool> row;
-  int dy;
-  int pointCount;
+    std::vector<bool> row;
+    int dy;
+    int pointCount;
 };
 
 #endif
