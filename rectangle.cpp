@@ -67,6 +67,6 @@ Rectangle::addPoint(int_x, int _y)
 		x2 = _x;
 		y2 = _y;
 	}
-	return 0;
+	
 }
-
+return 0;
