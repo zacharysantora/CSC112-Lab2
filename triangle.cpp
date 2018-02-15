@@ -2,6 +2,9 @@
 #include <iomanip>
 #include <cmath>
 #include "triangle.h"
+#include "shape.h"
+#include "term.h"
+#include "line.h"
 
 using namespace std;
 
@@ -14,19 +17,20 @@ triangle::triangle(){
 
 void triangle::display(){
             // display the triangle
-    if(not iscomplete()){
+    if(not isComplete()){
         return;
     }
-     Line 8,9;
-    8.addpoint(x1,y1);
-    8.display();
     
-    9.addpoint(x2,y2);
-    9.display();
+     Line l1,l2;
+    l1.addPoint(x1,y1);
+    l1.display();
     
-    9.addpoint(x3,y2);
-    9.apppoint(-x3,y2)
-    9.display();
+    l2.addPoint(x2,y2);
+    l2.display();
+    
+    l2.addPoint(x3,y2);
+    l2.addPoint(-x3,y2);
+    l2.display();
    
 
 }
@@ -34,13 +38,13 @@ void triangle::handleEvent(Event *e){
     //DOES NOTHING
 }
 
-bool triangle::iscomplete(){
+bool triangle::isComplete(){
     return pointCount == 2;
 }
 
-void triangle::addpoint(int _x, int _y){
+void triangle::addPoint(int _x, int _y){
     //if complete
-    if(iscomplete()) return;
+    if(isComplete()) return;
     
     if(pointCount == 0) {
         x1 =(_x);
@@ -50,10 +54,10 @@ void triangle::addpoint(int _x, int _y){
         x2 = (_x);
         y2 = (_y);
         cout << x2 << "*" << y2 << endl;
-    } else if (pointCounter == 2){
+    } else if (pointCounter == 2) {
         dy = y2 - y1;
-        l = sqrt(2*(pow(dy,2));
-        x3 = .5 * l
+        l = sqrt(2*(pow(dy,2)));
+        x3 = .5 * l;
         cout << x3 << "*" << y2 << endl;
         cout << -x3 << "*" << y2 << endl;
     }
