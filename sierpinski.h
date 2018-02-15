@@ -24,6 +24,7 @@ public:
 private:
   std::vector<bool> row;
   int dy;
+  int pointCount;
 };
 
 #endif
