@@ -22,7 +22,7 @@ Canvas::Canvas()
 
 
 //required widget function
-void 
+void
 Canvas::display()
 {
     //display the shapes
@@ -34,7 +34,7 @@ Canvas::display()
 }
 
 
-void 
+void
 Canvas::handleEvent(Event *e)
 {
     KeyboardEvent *kb;
@@ -64,6 +64,12 @@ Canvas::handleEvent(Event *e)
                 cursorAddPoint();
             }
             break;
+		case 'r'
+			if(working == nullptr){
+				working == new Rectangle();
+				cursorAddPoint();
+			}
+				break;
 	case 'l':
 	case 'L':
 	    if(working == nullptr) {
@@ -82,13 +88,13 @@ Canvas::handleEvent(Event *e)
 
 
 //some parenting magic
-void 
+void
 Canvas::parent(Widget *_parent)
 {
     Widget::parent(_parent);
 
     if(_parent) {
-        //copy width and height 
+        //copy width and height
         width(_parent->width());
         height(_parent->height());
 
@@ -103,7 +109,7 @@ Canvas::parent(Widget *_parent)
 
 
 //cursor movement commands
-void 
+void
 Canvas::cursorUp()
 {
     //clear the cursor
@@ -115,7 +121,7 @@ Canvas::cursorUp()
 }
 
 
-void 
+void
 Canvas::cursorDown()
 {
     //clear the cursor
@@ -127,7 +133,7 @@ Canvas::cursorDown()
 }
 
 
-void 
+void
 Canvas::cursorLeft()
 {
     //clear the cursor
@@ -139,7 +145,7 @@ Canvas::cursorLeft()
 }
 
 
-void 
+void
 Canvas::cursorRight()
 {
 
