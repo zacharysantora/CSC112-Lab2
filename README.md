@@ -7,7 +7,7 @@ these words you have at least not given up yet, and that has to count
 for something!)
 
 In this week's lab we will be extending the shapes program we started
-on in class.  Even better, you will be working in small groups, and in
+in class.  Even better, you will be working in small groups, and in
 the end the entire thing will be incorporated into one much larger
 program.  So this is your first real experience of working on a large
 programming team (we're almost 30 strong!)
@@ -26,7 +26,7 @@ Still with me?  Good!  Let's dive in!
 The first step is to form groups.  I will take care of that for you.
 Basically whoever is sitting at your table is a group.  I will come
 around and give you a shape.  Your job for the lab is to add this
-shape to the program.  Just one shape, though all together the class
+shape to the program.  Just one shape, though altogether the class
 is going to add several shapes to the shape program.
 
 ## Forking a Repository
@@ -70,6 +70,8 @@ you need to add them as collaborators. Luckily, that too is very easy.
 6. Everyone should now clone a copy of the newly created repository
 using the ssh URL.  (remember the "git clone" shell command from
 lab1?)
+7. Compile and run the shapes program using "make".  Notice that you
+can use "p" to add points and "l" to add lines. 
 
 ## Exploring the Revision History
 Everyone should be able to see the repository both on their terminal
@@ -104,6 +106,10 @@ revision is highlighted in green.
 Code that was removed is highlighted in red.  Go ahead and take a look
 at this, and make sure your group understands how to add new shapes to
 canvas.cpp before moving on.
+
+Also, have a look at the revision history for the Makefile.  I had to
+make some changes here too!  You'll need to do that when you add your
+shape.
 
 ## Coding Your Shape
 How you divide the work up is up to you.  You may all crowd around one
@@ -140,3 +146,13 @@ issued a pull request to an upstream repository.  Once everyone is
 done, you will then have synced form an upstream.  You're now equipped
 to go out and started participating in open source projects.  Search
 github, find code to play with, and enjoy!
+
+
+## Using Your Group for Conway's Game of Life
+If you have time left at the end of the lab, I recommend that you talk
+over your designs for program 1 with your group members.  Don't share
+code with them, but do share ideas.  I think you'll find that together
+you can work through most any programming problem!
+
+In fact, just saying your problems outloud can work wonders!
+https://rubberduckdebugging.com/
