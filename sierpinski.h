@@ -26,6 +26,7 @@ private:
     int dy;
     int pointCount;
     int rowCount;
+    void generate();  //generate the triangle lists
 };
 
 #endif
