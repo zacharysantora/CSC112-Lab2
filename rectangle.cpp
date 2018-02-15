@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 #include iostream
 #include "point.h"
 #include "rectangle.h"
@@ -20,3 +21,12 @@ l1.addPoint(x2,y2);
 //line function (x2,y2) to (x1,y1)
 
 //return 0;
+=======
+//Point implementation
+#include "point.h"
+#include "term.h"
+#include <iostream>
+
+using namespace std;
+
+>>>>>>> b734c15d34ef9eb6657e4dbfd6f8a9d1ffa5bb28
