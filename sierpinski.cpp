@@ -63,8 +63,39 @@ Sierpinski::addPoint(int _x, int _y)
 }
 
 
+/*
+Something like this:
+
+                 /\
+                /__\
+               /\  /\
+              /__\/__\
+             /\      /\
+            /__\    /__\
+           /\  /\  /\  /\
+          /__\/__\/__\/__\
+         /\              /\
+        /__\            /__\
+       /\  /\          /\  /\
+      /__\/__\        /__\/__\    
+     /\      /\      /\      /\
+    /__\    /__\    /__\    /__\
+   /\  /\  /\  /\  /\  /\  /\  /\
+  /__\/__\/__\/__\/__\/__\/__\/__\
+ 
+*/
+
+
 void
 Sierpinski::generate()
 {
-    //TODO
+    //First we work out how wide this will be. and find the center
+    int cols=rowCount;
+    if(cols % 2 == 0) {
+	cols++;
+    }
+    int center = cols/2 + 1;
+    
+
+    
 }
