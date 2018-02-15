@@ -1,6 +1,9 @@
-#include iostream
+#include <iostream>
 #include "point.h"
 #include "rectangle.h"
+#include <cmath>
+#include "shape.h"
+#include "line.h"
 
 
 using namespace std;
@@ -40,20 +43,17 @@ void Rectangle::display()
 void
 Rectangle::handleEvent(Event *e)
 {
-
-    
-=======
     //do nothing
 }
 
 bool
 Rectangle::isComplete()
 {
-	return pointCount == 2
+	return pointCount == 2;
 }
 
 void
-Rectangle::addPoint(int_x, int _y)
+Rectangle::addPoint(int _x, int _y)
 {
 	//dont add to a completed line
 	if(isComplete()) return;
@@ -72,13 +72,5 @@ Rectangle::addPoint(int_x, int _y)
 	}
 	
 }
-<<<<<<< HEAD
-return 0;
-=======
 
-<<<<<<< HEAD
 
-=======
->>>>>>> 63d1e1a5a5fb6e9275f3b88d23e84f9f23dafae4
->>>>>>> 6bbde798463e8db0bb63a4961c584d66bb5af933
->>>>>>> dcc7e92e45f4263d6aa5b1ad8d7c341cf24534ad
