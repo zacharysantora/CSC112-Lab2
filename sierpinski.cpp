@@ -61,7 +61,7 @@ static string nextStartLine(string &line)
 }
 
 
-// A helper fnction to generate the next finishing lines of the triangle
+// A helper function to generate the next finishing lines of the triangle
 static string nextFinishLine(string &line)
 {
     string result;
@@ -77,6 +77,25 @@ static string nextFinishLine(string &line)
 	} else {
 	    //spaces!
 	    result += "  ";
+	}
+    }
+
+    return result;
+}
+
+// A helper function to generate an inverted version of the row
+static string invertLine(string &line)
+{
+    string result;
+
+    //iterate through the string, all / becomes \ and all \ becomes /
+    for(auto itr=line.begin(); itr != line.end(); itr++) {
+	if(*itr == '/') {
+	    result += '\\';
+	} else if(*itr == '\\') {
+	    result += '/';
+	} else {
+	    result += *itr;
 	}
     }
 
@@ -99,7 +118,17 @@ Sierpinski::display()
 
     //print the rows out!
     for(int row = 0; row <= rowCount; row++) {
-	cout << cursorPosition(cx, cy) << line;
+	//position the cursor
+	cout << cursorPosition(cx, cy);
+
+	//draw the line
+	if(dy < 0) {
+	    //invert for upside down fun
+	    cout << invertLine(line);
+	} else {
+	    //the line abides
+	    cout << line;
+	}
 
 	//generate the next line
 	if(row % 2) {
