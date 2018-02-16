@@ -1,4 +1,5 @@
 #include <iostream>
+#include <string>
 #include "sierpinski.h"
 #include "term.h"
 
@@ -33,10 +34,79 @@ Something like this:
   /__\/__\/__\/__\/__\/__\/__\/__\
  
 */
+
+// A helper function to generate the next starting lines of the triangle
+static string nextStartLine(string &line)
+{
+    string result;
+
+    for(int i=0; i<line.length(); i+=4) {
+	if(i == 0 or line[i] != '\\') {
+	    result += "/\\  ";
+	} else {
+	    result += "    ";
+	} 
+    
+    }
+
+    //always end with a starting apex
+    result += "/\\";
+
+    return result;
+}
+
+
+// A helper fnction to generate the next finishing lines of the triangle
+static string nextFinishLine(string &line)
+{
+    string result;
+    string slice;
+    
+    //generate the next line
+    for(int i=0; i<line.length(); i+=2) {
+	slice = line.substr(i, 2);  //get the next two characters
+	if(slice == "/\\") {
+	    //finish the triangle
+	    result += "/__\\";
+	    i+=2;
+	} else {
+	    //spaces!
+	    result += "  ";
+	}
+    }
+
+    return result;
+}
+
+
 void
 Sierpinski::display()
 {
-    //TODO: Display the triangle!
+    string line;
+    int cx;
+    int cy;
+
+    //start at the indicated position
+    cx=x();
+    cy=y();
+    
+    line ="/\\";  //initial line
+
+    //print the rows out!
+    for(int row = 0; row < rowCount; row++) {
+	cout << cursorPosition(cx, cy) << line;
+
+	//generate the next line
+	if(row % 2) {
+	    line = nextStartLine(line);
+	} else {
+	    line = nextFinishLine(line);
+	}
+	
+	//generate the next coordinates
+	cy += dy;
+	cx -= 1;
+    }
 }
 
 
