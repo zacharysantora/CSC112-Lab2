@@ -41,7 +41,12 @@ static string nextStartLine(string &line)
     string result;
 
     for(int i=0; i<line.length(); i+=4) {
-	if(i == 0 or line[i] != '\\') {
+	//we start a new triangle in several situations.  First,
+	//we start at the beginning of the row.  Second, we start
+	//one at each " /" and again at each " \", but never at "\/"
+	//because that is the shared vertex of two triangles!
+	if(i == 0 or (line[i] == '/' and line[i-1]!='\\')
+	          or (line[i] == ' ' and line[i-1] == '\\')) {
 	    result += "/\\  ";
 	} else {
 	    result += "    ";
@@ -93,7 +98,7 @@ Sierpinski::display()
     line ="/\\";  //initial line
 
     //print the rows out!
-    for(int row = 0; row < rowCount; row++) {
+    for(int row = 0; row <= rowCount; row++) {
 	cout << cursorPosition(cx, cy) << line;
 
 	//generate the next line
