@@ -5,6 +5,7 @@
 #include "term.h"
 #include "point.h"
 #include "line.h"
+#include "sierpinski.h"
 
 using namespace std;
 
@@ -71,6 +72,12 @@ Canvas::handleEvent(Event *e)
 		cursorAddPoint();
 	    }
 	    break;
+	case 's':
+	case 'S':
+	    if(working == nullptr) {
+		working = new Sierpinski();
+		cursorAddPoint();
+	    }
         case ESC:
             if(_parent) ((Application*)_parent)->running(false);
             break;
