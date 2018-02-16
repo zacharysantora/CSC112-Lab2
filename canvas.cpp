@@ -78,6 +78,7 @@ Canvas::handleEvent(Event *e)
 		working = new Sierpinski();
 		cursorAddPoint();
 	    }
+	    break;
         case ESC:
             if(_parent) ((Application*)_parent)->running(false);
             break;
