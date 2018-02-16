@@ -5,7 +5,6 @@
 #ifndef SIERPINSKI_H
 #define SIERPINSKI_H
 #include <vector>
-#include <string>
 #include "shape.h"
 
 class Sierpinski : public Shape
@@ -23,11 +22,9 @@ public:
     virtual void addPoint(int _x, int _y);
   
 private:
-    std::vector<std::string> rows;
     int dy;
     int pointCount;
     int rowCount;
-    void generate();  //generate the triangle lists
 };
 
 #endif
