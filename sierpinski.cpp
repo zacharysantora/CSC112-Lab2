@@ -11,6 +11,28 @@ Sierpinski::Sierpinski()
     pointCount = 0;
 }
 
+
+/*
+Something like this:
+
+                 /\
+                /__\
+               /\  /\
+              /__\/__\
+             /\      /\
+            /__\    /__\
+           /\  /\  /\  /\
+          /__\/__\/__\/__\
+         /\              /\
+        /__\            /__\
+       /\  /\          /\  /\
+      /__\/__\        /__\/__\    
+     /\      /\      /\      /\
+    /__\    /__\    /__\    /__\
+   /\  /\  /\  /\  /\  /\  /\  /\
+  /__\/__\/__\/__\/__\/__\/__\/__\
+ 
+*/
 void
 Sierpinski::display()
 {
@@ -55,9 +77,6 @@ Sierpinski::addPoint(int _x, int _y)
 	    dy = -1;
 	    rowCount = -rowCount;
 	}
-
-	//the triangle is complete, generate it!
-	generate();
     }
 
 
@@ -65,31 +84,4 @@ Sierpinski::addPoint(int _x, int _y)
 }
 
 
-/*
-Something like this:
 
-                 /\
-                /__\
-               /\  /\
-              /__\/__\
-             /\      /\
-            /__\    /__\
-           /\  /\  /\  /\
-          /__\/__\/__\/__\
-         /\              /\
-        /__\            /__\
-       /\  /\          /\  /\
-      /__\/__\        /__\/__\    
-     /\      /\      /\      /\
-    /__\    /__\    /__\    /__\
-   /\  /\  /\  /\  /\  /\  /\  /\
-  /__\/__\/__\/__\/__\/__\/__\/__\
- 
-*/
-
-
-void
-Sierpinski::generate()
-{
-    
-}
