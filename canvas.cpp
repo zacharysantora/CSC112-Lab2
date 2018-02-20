@@ -63,13 +63,6 @@ Canvas::handleEvent(Event *e)
             if(working == nullptr) {
                 working = new triangle();
                 cursorAddPoint();
-            }
-            break;
-       case 'p':
-       case 'P':
-            if(working == nullptr) {
-                working = new Point();
-                cursorAddPoint();
            }
            break;
 	case 'l':

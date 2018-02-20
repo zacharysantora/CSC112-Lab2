@@ -10,15 +10,9 @@ using namespace std;
 
 triangle::triangle(){
     //where does it start
-<<<<<<< HEAD
-    x1 = 0;
-    y1 = 0;
-    x3 = 0;
-    x4 = 0;
-=======
-    x1 = -1;
-    y1 = -1;
->>>>>>> 34f3536af836f8d3a029cf0cf41e3e9588762993
+    
+    _x = -1;
+    _y = -1;
     pointCount = 0;
 }
 
@@ -27,38 +21,37 @@ void triangle::display(){
     if(not isComplete()){
         return;
     }
-<<<<<<< HEAD
+
+     Line l1,l2,l3,l4,l5;
+
     c=2*(y2-y1);
     x3=x2+c;
     x4=x2-c;
-     Line a,b,c;
-    a.addpoint(x1,y1);
-    a.display();
     
-    b.addpoint(x2,y2);
-    b.display();
-    
-    b.addpoint(x3,y2);
-    b.apppoint(x4,y2);
-    b.display();
-    
-    c.addpoint(x1,y1);
-    c.display();
-=======
-    
-     Line l1,l2;
     l1.addPoint(x1,y1);
     l1.display();
-    
+
     l2.addPoint(x2,y2);
+    l3.addPoint(x3,y2);
+    l3.addPoint(x4,y2);
     l2.display();
-    
+
     l2.addPoint(x3,y2);
     l2.addPoint(-x3,y2);
     l2.display();
-   
->>>>>>> 34f3536af836f8d3a029cf0cf41e3e9588762993
 
+    l3.addPoint(x3,y2);
+    l3.addPoint(x4,y2);
+    l3.addPoint(x1,y1);
+    l3.display();
+    
+    l4.addPoint(x4,y2);
+    l4.addPoint(x1,y1);
+    l4.display();
+    
+    l5.addPoint(x3,y2);
+    l5.addPoint(x1,y1);
+    l5.display();
 }
 void triangle::handleEvent(Event *e){
     //DOES NOTHING
@@ -73,31 +66,20 @@ void triangle::addPoint(int _x, int _y){
     if(isComplete()) return;
     
     if(pointCount == 0) {
-        x1 =_x;
-        y1 =_y;
-        cout << x1 << "*" << y1 << endl;
+        x1 = _x;
+        y1 = _y;
+        pointCount++;
+
     } else if (pointCount == 1) {
-<<<<<<< HEAD
-        if (x1!=x2){
-            cout << "pick another point" << endl;
-        }
-        x2 = (_x);
-        y2 = (_y);
-        cout << x2 << "*" << y2 << endl;
-        dy = y2 - y1;
-        l = sqrt(2*(pow(dy,2)));
-        x3 = .5 * l
-=======
         x2 = _x;
         y2 = _y;
-        cout << x2 << "*" << y2 << endl;
+        pointCount++;
+
     } else if (pointCount == 2) {
-        dy = y2 - y1;
-        l = sqrt(2*(pow(dy,2)));
-        x3 = .5 * l;
->>>>>>> 34f3536af836f8d3a029cf0cf41e3e9588762993
-        cout << x3 << "*" << y2 << endl;
-        cout << x4 << "*" << y2 << endl;
-                 }
+        x3 = _x;
+        y2 = _y;
+        x4 = _x;
+
     pointCount++;
+ }
 }
