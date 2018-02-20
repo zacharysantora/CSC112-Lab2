@@ -5,6 +5,7 @@
 #include "term.h"
 #include "point.h"
 #include "line.h"
+#include "sierpinski.h"
 #include "quadrangle.h"
 #include "rectangle.h"
 
@@ -37,7 +38,7 @@ Canvas::display()
 
 
 void
-Canvas::handleEvent(Event *e)
+Canvas::handleEvent(Event *e) 
 {
 	KeyboardEvent *kb;
 
@@ -72,6 +73,13 @@ Canvas::handleEvent(Event *e)
 					cursorAddPoint();
 				}
 				break;
+      case 's':
+      case 'S':
+        if(working==nullptr) {
+          working = new Sierpinski();
+          cursorAddPoint();
+        }
+        break;
       case 'p':
 			case 'P':
 				if(working == nullptr) {
