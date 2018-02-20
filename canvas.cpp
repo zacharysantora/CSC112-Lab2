@@ -8,7 +8,7 @@
 
 using namespace std;
 
-//constructors
+// constructors
 Canvas::Canvas()
 {
     x(1);
@@ -16,16 +16,16 @@ Canvas::Canvas()
     this->cx = 1;
     this->cy = 1;
 
-    //initailly have no working shape
+    // initailly have no working shape
     working = nullptr;
 }
 
 
-//required widget function
+// required widget function
 void 
 Canvas::display()
 {
-    //display the shapes
+    // display the shapes
     for(auto itr = shapeList.begin(); itr != shapeList.end(); itr++) {
         (*itr)->display();
     }
@@ -42,38 +42,44 @@ Canvas::handleEvent(Event *e)
     if(e->type() == "keyboard") {
         kb = (KeyboardEvent*) e;
         switch(kb->key()) {
-        case UP:
-            cursorUp();
-            break;
-        case DOWN:
-            cursorDown();
-            break;
-        case LEFT:
-            cursorLeft();
-            break;
-        case RIGHT:
-            cursorRight();
-            break;
-        case ENTER:
-            cursorAddPoint();
-            break;
-        case 'p':
-        case 'P':
-            if(working == nullptr) {
-                working = new Point();
+            case UP:
+                cursorUp();
+                break;
+            case DOWN:
+                cursorDown();
+                break;
+            case LEFT:
+                cursorLeft();
+                break;
+            case RIGHT:
+                cursorRight();
+                break;
+            case ENTER:
                 cursorAddPoint();
-            }
-            break;
-	case 'l':
-	case 'L':
-	    if(working == nullptr) {
-		working = new Line();
-		cursorAddPoint();
-	    }
-	    break;
-        case ESC:
-            if(_parent) ((Application*)_parent)->running(false);
-            break;
+                break;
+            case 'h':
+            case 'H':
+                if(working == nullptr) {
+                    working = new Hexagon();
+                    cursorAddPoint();
+                }
+            case 'p':
+            case 'P':
+                if(working == nullptr) {
+                    working = new Point();
+                    cursorAddPoint();
+                }
+                break;
+            case 'l':
+            case 'L':
+                if(working == nullptr) {
+                    working = new Line();
+                    cursorAddPoint();
+                }
+                break;
+            case ESC:
+                if(_parent) ((Application*)_parent)->running(false);
+                break;
         }
         display();
     }
@@ -81,7 +87,7 @@ Canvas::handleEvent(Event *e)
 
 
 
-//some parenting magic
+// some parenting magic
 void 
 Canvas::parent(Widget *_parent)
 {
@@ -102,14 +108,14 @@ Canvas::parent(Widget *_parent)
 
 
 
-//cursor movement commands
+// cursor movement commands
 void 
 Canvas::cursorUp()
 {
-    //clear the cursor
+    // clear the cursor
     cout << cursorPosition(cx, cy) << ' ';
 
-    //move the cursor
+    // move the cursor
     cy--;
     if(cy<1) cy=1;
 }
@@ -118,10 +124,10 @@ Canvas::cursorUp()
 void 
 Canvas::cursorDown()
 {
-    //clear the cursor
+    // clear the cursor
     cout << cursorPosition(cx, cy) << ' ';
 
-    //move the cursor
+    // move the cursor
     cy++;
     if(cy>height()) cy=height();
 }
@@ -130,10 +136,10 @@ Canvas::cursorDown()
 void 
 Canvas::cursorLeft()
 {
-    //clear the cursor
+    // clear the cursor
     cout << cursorPosition(cx, cy) << ' ';
 
-    //move the cursor
+    // move the cursor
     cx--;
     if(cx<1) cx=1;
 }
@@ -143,10 +149,10 @@ void
 Canvas::cursorRight()
 {
 
-    //clear the cursor
+    // clear the cursor
     cout << cursorPosition(cx, cy) << ' ';
 
-    //move the cursor
+    // move the cursor
     cx++;
     if(cx>width()) cx=width();
 
@@ -156,16 +162,16 @@ Canvas::cursorRight()
 void
 Canvas::cursorAddPoint()
 {
-    //if there is no working shape, return
+    // if there is no working shape, return
     if(working == nullptr) return;
 
-    //add to the shape
+    // add to the shape
     working->addPoint(cx, cy);
 
 
-    //if the shape is complete, add it to the list
+    // if the shape is complete, add it to the list
     if(working->isComplete()) {
         shapeList.push_back(working);
-        working = nullptr;  //get ready for the next shape
+        working = nullptr;  // get ready for the next shape
     }
 }

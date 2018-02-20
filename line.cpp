@@ -78,17 +78,17 @@ Line::addPoint(int _x, int _y)
 
     //set the endpoint and mark ourselves complete
     if(pointCount == 0) {
-	//set the first end point
-	x(_x);
-	y(_y);
+        //set the first end point
+        x(_x);
+        y(_y);
     } else {
-	_ex = _x;
-	_ey = _y;
+        _ex = _x;
+        _ey = _y;
     }
 
     //we added a point!
     pointCount++;
-    
+
 }
 
 
