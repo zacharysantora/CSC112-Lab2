@@ -5,6 +5,7 @@
 #include "term.h"
 #include "point.h"
 #include "line.h"
+#include "rectangle.h"
 
 using namespace std;
 
@@ -22,7 +23,7 @@ Canvas::Canvas()
 
 
 //required widget function
-void 
+void
 Canvas::display()
 {
     //display the shapes
@@ -34,61 +35,68 @@ Canvas::display()
 }
 
 
-void 
+void
 Canvas::handleEvent(Event *e)
 {
-    KeyboardEvent *kb;
+	KeyboardEvent *kb;
 
-    if(e->type() == "keyboard") {
-        kb = (KeyboardEvent*) e;
-        switch(kb->key()) {
-        case UP:
-            cursorUp();
-            break;
-        case DOWN:
-            cursorDown();
-            break;
-        case LEFT:
-            cursorLeft();
-            break;
-        case RIGHT:
-            cursorRight();
-            break;
-        case ENTER:
-            cursorAddPoint();
-            break;
-        case 'p':
-        case 'P':
-            if(working == nullptr) {
-                working = new Point();
-                cursorAddPoint();
-            }
-            break;
-	case 'l':
-	case 'L':
-	    if(working == nullptr) {
-		working = new Line();
-		cursorAddPoint();
-	    }
-	    break;
-        case ESC:
-            if(_parent) ((Application*)_parent)->running(false);
-            break;
-        }
-        display();
-    }
+	if(e->type() == "keyboard") {
+		kb = (KeyboardEvent*) e;
+		switch(kb->key()) {
+			case UP:
+				cursorUp();
+				break;
+			case DOWN:
+				cursorDown();
+				break;
+			case LEFT:
+				cursorLeft();
+				break;
+			case RIGHT:
+				cursorRight();
+				break;
+			case ENTER:
+				cursorAddPoint();
+				break;
+			case 'p':
+			case 'r':
+			case 'R':
+				if(working == nullptr) {
+					working = new Rectangle();
+					cursorAddPoint();
+				}
+				break;
+			case 'P':
+				if(working == nullptr) {
+					working = new Point();
+					cursorAddPoint();
+				}
+				break;
+			case 'l':
+			case 'L':
+				if(working == nullptr) {
+					working = new Line();
+					cursorAddPoint();
+				}
+				break;
+			case ESC:
+				if(_parent) ((Application*)_parent)->running(false);
+				break;
+		}
+		display();
+	}
 }
 
 
 
 //some parenting magic
-void 
+void
 Canvas::parent(Widget *_parent)
 {
     Widget::parent(_parent);
 
     if(_parent) {
-        //copy width and height 
+        //copy width and height
         width(_parent->width());
         height(_parent->height());
 
@@ -103,7 +111,7 @@ Canvas::parent(Widget *_parent)
 
 
 //cursor movement commands
-void 
+void
 Canvas::cursorUp()
 {
     //clear the cursor
@@ -115,7 +123,7 @@ Canvas::cursorUp()
 }
 
 
-void 
+void
 Canvas::cursorDown()
 {
     //clear the cursor
@@ -127,7 +135,7 @@ Canvas::cursorDown()
 }
 
 
-void 
+void
 Canvas::cursorLeft()
 {
     //clear the cursor
@@ -139,7 +147,7 @@ Canvas::cursorLeft()
 }
 
 
-void 
+void
 Canvas::cursorRight()
 {
 
