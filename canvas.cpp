@@ -6,6 +6,7 @@
 #include "point.h"
 #include "line.h"
 #include "quadrangle.h"
+#include "rectangle.h"
 
 using namespace std;
 
@@ -23,7 +24,7 @@ Canvas::Canvas()
 
 
 //required widget function
-void 
+void
 Canvas::display()
 {
 	//display the shapes
@@ -35,7 +36,7 @@ Canvas::display()
 }
 
 
-void 
+void
 Canvas::handleEvent(Event *e)
 {
 	KeyboardEvent *kb;
@@ -62,9 +63,16 @@ Canvas::handleEvent(Event *e)
 			case 'Q':
 				if(working == nullptr) {
 					working = new Quadrangle();
+          cursorAddPoint();
+        }
+			case 'r':
+			case 'R':
+				if(working == nullptr) {
+					working = new Rectangle();
 					cursorAddPoint();
 				}
 				break;
+      case 'p':
 			case 'P':
 				if(working == nullptr) {
 					working = new Point();
@@ -89,28 +97,28 @@ Canvas::handleEvent(Event *e)
 
 
 //some parenting magic
-void 
+void
 Canvas::parent(Widget *_parent)
 {
-	Widget::parent(_parent);
+    Widget::parent(_parent);
 
-	if(_parent) {
-		//copy width and height 
-		width(_parent->width());
-		height(_parent->height());
+    if(_parent) {
+        //copy width and height
+        width(_parent->width());
+        height(_parent->height());
 
-		//put cursor in the middle
-		cout << cursorPosition(cx, cy) << ' ';
-		cx = width()/2+1;
-		cy = height()/2+1;
-		display();
-	}
+        //put cursor in the middle
+        cout << cursorPosition(cx, cy) << ' ';
+        cx = width()/2+1;
+        cy = height()/2+1;
+        display();
+    }
 }
 
 
 
 //cursor movement commands
-void 
+void
 Canvas::cursorUp()
 {
 	//clear the cursor
@@ -122,7 +130,7 @@ Canvas::cursorUp()
 }
 
 
-void 
+void
 Canvas::cursorDown()
 {
 	//clear the cursor
@@ -134,7 +142,7 @@ Canvas::cursorDown()
 }
 
 
-void 
+void
 Canvas::cursorLeft()
 {
 	//clear the cursor
@@ -146,7 +154,7 @@ Canvas::cursorLeft()
 }
 
 
-void 
+void
 Canvas::cursorRight()
 {
 
