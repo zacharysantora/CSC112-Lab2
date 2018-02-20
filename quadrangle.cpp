@@ -40,10 +40,6 @@ Quadrangle::display()
 	l4.addPoint(x1,y1);
 	l4.display();
 	
-	
-	
-	
-	
 }
 
 void 
@@ -70,27 +66,23 @@ Quadrangle::addPoint(int _x, int _y)
 		x1 = _x;
 		y1 = _y;
 		pointCount++;
-		cout << "Added point at " << x1 << "," << y1 << endl;
 	} 
 	else if(pointCount == 1) {
 		//set the first end point
 		x2 = _x;
 		y2 = _y;
 		pointCount++;
-		cout << "Added point at " << x2 << "," << y2 << endl;
 	}
 	else if(pointCount == 2) {
 		//set the first end point
 		x3 = _x;
 		y3 = _y;
 		pointCount++;
-		cout << "Added point at " << x3 << "," << y3 << endl;
 	}
 	else
 	{
 		x4 = _x;
 		y4 = _y;
 		pointCount++;
-		cout << "Added point at " << x4 << "," << y4 << endl;
 	}
 }

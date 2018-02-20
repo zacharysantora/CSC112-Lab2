@@ -58,7 +58,6 @@ Canvas::handleEvent(Event *e)
 			case ENTER:
 				cursorAddPoint();
 				break;
-			case 'p':
 			case 'q':
 			case 'Q':
 				if(working == nullptr) {
