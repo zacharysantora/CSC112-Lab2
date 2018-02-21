@@ -5,6 +5,7 @@
 #include "term.h"
 #include "point.h"
 #include "line.h"
+#include "hexagon.h"
 
 using namespace std;
 
