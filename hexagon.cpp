@@ -30,6 +30,9 @@ void Hexagon::display()
     r = sqrt(dx * dx + dy * dy);
     
     //Calculate each corner
+    x1 = xc + dx;
+    y1 = yc + dy;
+    
     x2 = xc - dx;
     y2 = yc + dy;
     
