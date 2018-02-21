@@ -175,3 +175,4 @@ Canvas::cursorAddPoint()
         working = nullptr;  // get ready for the next shape
     }
 }
+c
