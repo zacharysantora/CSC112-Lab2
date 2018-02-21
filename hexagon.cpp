@@ -3,6 +3,7 @@
 #include "shape.h"
 #include "term.h"
 #include "hexagon.h"
+#include "line.h"
 
 using namespace std;
 
