@@ -26,6 +26,7 @@ private:
     //Radius of hexagon
     int r;
     
+    //Count them points
     int pointCount;
 };
 

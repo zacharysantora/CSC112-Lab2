@@ -27,7 +27,7 @@ void Hexagon::display()
     //Calculate the deltas and radius
     dx = abs(x1 - xc);
     dy = abs(y1 - yc);
-    r = sqrt(dx * dx + dy * dy)
+    r = sqrt(dx * dx + dy * dy);
     
     //Calculate each corner
     x2 = xc - dx;
@@ -95,7 +95,7 @@ void Hexagon::addPoint(int _x, int _y)
     }
 
     //Set the points
-    if(pointCounter == 0)
+    if(pointCount == 0)
     {
         //set the center
         xc = _x;
