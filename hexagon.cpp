@@ -52,25 +52,25 @@ void Hexagon::display()
     l1.addPoint(x2,y2);
     l1.display();
     
-    l1.addPoint(x2,y2);
-    l1.addPoint(x3,y3);
-    l1.display();
+    l2.addPoint(x2,y2);
+    l2.addPoint(x3,y3);
+    l2.display();
     
-    l1.addPoint(x3,y3);
-    l1.addPoint(x4,y4);
-    l1.display();
+    l3.addPoint(x3,y3);
+    l3.addPoint(x4,y4);
+    l3.display();
     
-    l1.addPoint(x4,y4);
-    l1.addPoint(x5,y5);
-    l1.display();
+    l4.addPoint(x4,y4);
+    l4.addPoint(x5,y5);
+    l4.display();
     
-    l1.addPoint(x5,y5);
-    l1.addPoint(x6,y6);
-    l1.display();
+    l5.addPoint(x5,y5);
+    l5.addPoint(x6,y6);
+    l5.display();
     
-    l1.addPoint(x6,y6);
-    l1.addPoint(x1,y1);
-    l1.display();
+    l6.addPoint(x6,y6);
+    l6.addPoint(x1,y1);
+    l6.display();
 }
 
 
