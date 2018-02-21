@@ -9,8 +9,8 @@ using namespace std;
 
 Hexagon::Hexagon()
 {
-    _ex = -1;
-    _ey = -1;
+    xc = -1;
+    yc = -1;
     pointCount = 0;
 }
 
