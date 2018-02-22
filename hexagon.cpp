@@ -27,7 +27,7 @@ void Hexagon::display()
     //Calculate the deltas and radius
     dx = abs(x1 - xc);
     dy = abs(y1 - yc);
-    r = sqrt(dx * dx + dy * dy) + 1;
+    r = sqrt(dx * dx + dy * dy);
     
     //Calculate each corner
     x1 = xc + dx;
@@ -36,7 +36,7 @@ void Hexagon::display()
     x2 = xc - dx;
     y2 = yc + dy;
     
-    x3 = xc - r;
+    x3 = xc - r -1;
     y3 = yc;
     
     x4 = xc - dx;
@@ -45,7 +45,7 @@ void Hexagon::display()
     x5 = xc + dx;
     y5 = yc - dy;
     
-    x6 = xc + r;
+    x6 = xc + r +1;
     y6 = yc;
     
     //Display the hexagon
