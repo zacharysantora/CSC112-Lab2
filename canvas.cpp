@@ -45,58 +45,59 @@ Canvas::handleEvent(Event *e)
 	if(e->type() == "keyboard") {
 		kb = (KeyboardEvent*) e;
 		switch(kb->key()) {
-			case UP:
-				cursorUp();
-				break;
-			case DOWN:
-				cursorDown();
-				break;
-			case LEFT:
-				cursorLeft();
-				break;
-			case RIGHT:
-				cursorRight();
-				break;
-			case ENTER:
-				cursorAddPoint();
-				break;
-			case 'q':
-			case 'Q':
-				if(working == nullptr) {
-					working = new Quadrangle();
-          cursorAddPoint();
-        }
-			case 'r':
-			case 'R':
-				if(working == nullptr) {
-					working = new Rectangle();
-					cursorAddPoint();
-				}
-				break;
-      case 's':
-      case 'S':
-        if(working==nullptr) {
-          working = new Sierpinski();
-          cursorAddPoint();
-        }
-        break;
-      case 'p':
-			case 'P':
-				if(working == nullptr) {
-					working = new Point();
-					cursorAddPoint();
-				}
-				break;
-			case 'l':
-			case 'L':
-				if(working == nullptr) {
-					working = new Line();
-					cursorAddPoint();
-				}
-				break;
-			case ESC:
-				if(_parent) ((Application*)_parent)->running(false);
-				break;
+		case UP:
+		    cursorUp();
+		    break;
+		case DOWN:
+		    cursorDown();
+		    break;
+		case LEFT:
+		    cursorLeft();
+		    break;
+		case RIGHT:
+		    cursorRight();
+		    break;
+		case ENTER:
+		    cursorAddPoint();
+		    break;
+		case 'q':
+		case 'Q':
+		    if(working == nullptr) {
+			working = new Quadrangle();
+			cursorAddPoint();
+		    }
+		    break;
+		case 'r':
+		case 'R':
+		    if(working == nullptr) {
+			working = new Rectangle();
+			cursorAddPoint();
+		    }
+		    break;
+		case 's':
+		case 'S':
+		    if(working==nullptr) {
+			working = new Sierpinski();
+			cursorAddPoint();
+		    }
+		    break;
+		case 'p':
+		case 'P':
+		    if(working == nullptr) {
+			working = new Point();
+			cursorAddPoint();
+		    }
+		    break;
+		case 'l':
+		case 'L':
+		    if(working == nullptr) {
+			working = new Line();
+			cursorAddPoint();
+		    }
+		    break;
+		case ESC:
+		    if(_parent) ((Application*)_parent)->running(false);
+		    break;
 		}
 		display();
 	}
