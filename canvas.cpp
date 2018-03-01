@@ -5,6 +5,7 @@
 #include "term.h"
 #include "point.h"
 #include "line.h"
+#include "triangle.h"
 #include "hexagon.h"
 #include "sierpinski.h"
 #include "quadrangle.h"
@@ -41,6 +42,45 @@ Canvas::display()
 void
 Canvas::handleEvent(Event *e) 
 {
+
+    KeyboardEvent *kb;
+
+    if(e->type() == "keyboard") {
+        kb = (KeyboardEvent*) e;
+        switch(kb->key()) {
+        case UP:
+            cursorUp();
+            break;
+        case DOWN:
+            cursorDown();
+            break;
+        case LEFT:
+            cursorLeft();
+            break;
+        case RIGHT:
+            cursorRight();
+            break;
+        case ENTER:
+            cursorAddPoint();
+            break;
+        case 't':
+        case 'T':
+            if(working == nullptr) {
+                working = new triangle();
+                cursorAddPoint();
+           }
+           break;
+	case 'l':
+	case 'L':
+	    if(working == nullptr) {
+		working = new Line();
+		cursorAddPoint();
+	    }
+	    break;
+        case ESC:
+            if(_parent) ((Application*)_parent)->running(false);
+            break;
+
 	KeyboardEvent *kb;
 
 	if(e->type() == "keyboard") {
@@ -73,6 +113,7 @@ Canvas::handleEvent(Event *e)
 				if(working == nullptr) {
 					working = new Quadrangle();
           cursorAddPoint();
+
         }
 			case 'r':
 			case 'R':
