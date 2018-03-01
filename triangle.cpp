@@ -13,7 +13,11 @@ int main {
     //Variables
     int l;
     int h;
+    cout << "height" <<;
+    cin << h;
     
+    cout <<"lines" <<;
+    cin << l;
     Line::display
     /* Print out the line 
     
