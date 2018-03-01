@@ -61,6 +61,7 @@ Canvas::handleEvent(Event *e)
 	    break;
 	case ENTER:
 	    cursorAddPoint();
+	    break;
 
 	case 'h':
 	case 'H':
