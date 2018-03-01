@@ -6,35 +6,36 @@
 #include "point.h"
 #include "line.h"
 #include "triangle.h"
+#include "hexagon.h"
 #include "sierpinski.h"
 #include "quadrangle.h"
 #include "rectangle.h"
 
 using namespace std;
 
-//constructors
+// constructors
 Canvas::Canvas()
 {
 	x(1);
 	y(1);
 	this->cx = 1;
 	this->cy = 1;
-
-	//initailly have no working shape
-	working = nullptr;
+  
+    // initailly have no working shape
+    working = nullptr;
 }
 
 
-//required widget function
-void
+// required widget function
+void 
 Canvas::display()
 {
-	//display the shapes
-	for(auto itr = shapeList.begin(); itr != shapeList.end(); itr++) {
-		(*itr)->display();
-	}
-	cout << cursorPosition(cx, cy) << '+';
-	cout.flush();
+    // display the shapes
+    for(auto itr = shapeList.begin(); itr != shapeList.end(); itr++) {
+        (*itr)->display();
+    }
+    cout << cursorPosition(cx, cy) << '+';
+    cout.flush();
 }
 
 
@@ -100,6 +101,13 @@ Canvas::handleEvent(Event *e)
 			case ENTER:
 				cursorAddPoint();
 				break;
+      case 'h':
+      case 'H':
+                if(working == nullptr) {
+                    working = new Hexagon();
+                    cursorAddPoint();
+                }
+        break;
 			case 'q':
 			case 'Q':
 				if(working == nullptr) {
@@ -145,6 +153,7 @@ Canvas::handleEvent(Event *e)
 
 
 
+
 //some parenting magic
 void
 Canvas::parent(Widget *_parent)
@@ -166,70 +175,68 @@ Canvas::parent(Widget *_parent)
 
 
 
-//cursor movement commands
-void
+// cursor movement commands
+void 
 Canvas::cursorUp()
 {
-	//clear the cursor
-	cout << cursorPosition(cx, cy) << ' ';
+    // clear the cursor
+    cout << cursorPosition(cx, cy) << ' ';
 
-	//move the cursor
-	cy--;
-	if(cy<1) cy=1;
+    // move the cursor
+    cy--;
+    if(cy<1) cy=1;
 }
 
 
 void
 Canvas::cursorDown()
 {
-	//clear the cursor
-	cout << cursorPosition(cx, cy) << ' ';
+    // clear the cursor
+    cout << cursorPosition(cx, cy) << ' ';
 
-	//move the cursor
-	cy++;
-	if(cy>height()) cy=height();
+    // move the cursor
+    cy++;
+    if(cy>height()) cy=height();
 }
 
 
 void
 Canvas::cursorLeft()
 {
-	//clear the cursor
-	cout << cursorPosition(cx, cy) << ' ';
+    // clear the cursor
+    cout << cursorPosition(cx, cy) << ' ';
 
-	//move the cursor
-	cx--;
-	if(cx<1) cx=1;
+    // move the cursor
+    cx--;
+    if(cx<1) cx=1;
 }
 
 
 void
 Canvas::cursorRight()
 {
+    // clear the cursor
+    cout << cursorPosition(cx, cy) << ' ';
 
-	//clear the cursor
-	cout << cursorPosition(cx, cy) << ' ';
-
-	//move the cursor
-	cx++;
-	if(cx>width()) cx=width();
-
+    // move the cursor
+    cx++;
+    if(cx>width()) cx=width();
 }
 
 
 void
 Canvas::cursorAddPoint()
 {
-	//if there is no working shape, return
-	if(working == nullptr) return;
+    // if there is no working shape, return
+    if(working == nullptr) return;
 
-	//add to the shape
-	working->addPoint(cx, cy);
+    // add to the shape
+    working->addPoint(cx, cy);
 
 
-	//if the shape is complete, add it to the list
-	if(working->isComplete()) {
-		shapeList.push_back(working);
-		working = nullptr;  //get ready for the next shape
-	}
+    // if the shape is complete, add it to the list
+    if(working->isComplete()) {
+        shapeList.push_back(working);
+        working = nullptr;  // get ready for the next shape
+    }
 }

@@ -44,7 +44,7 @@ Line::display()
 
     //and now we'll connect them!
     while(steps--) {
-	// print the point and update to the next position
+	//print the point and update to the next position
 	cout << cursorPosition(int(px), int(py)) << "#";
 	px += dx;
 	py += dy;
@@ -78,17 +78,17 @@ Line::addPoint(int _x, int _y)
 
     //set the endpoint and mark ourselves complete
     if(pointCount == 0) {
-	//set the first end point
-	x(_x);
-	y(_y);
+        //set the first end point
+        x(_x);
+        y(_y);
     } else {
-	_ex = _x;
-	_ey = _y;
+        _ex = _x;
+        _ey = _y;
     }
 
     //we added a point!
     pointCount++;
-    
+
 }
 
 
