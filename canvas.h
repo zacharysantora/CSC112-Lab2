@@ -28,7 +28,7 @@ public:
     virtual void cursorAddPoint();
 protected:
     int cx, cy;     //cursor position
-    std::vector<Shape*> shapeList;  
+    std::vector<Shape*> shapeList;
     Shape *working;  //the shape we are working on
 };
 #endif
