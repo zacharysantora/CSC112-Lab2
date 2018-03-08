@@ -16,8 +16,8 @@
     virtual void addPoint(int _x, int _y);
  	
  private:
- 	int x1,x2,x3,l;
- 	int y1,y2,dy;
+ 	int x1,x2,x3,x4,l;
+ 	int y1,y2,dy,c;
  	int pointCount;
  };
  #endif 
