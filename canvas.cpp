@@ -16,11 +16,11 @@ using namespace std;
 // constructors
 Canvas::Canvas()
 {
+    colorShape();
 	x(1);
 	y(1);
 	this->cx = 1;
 	this->cy = 1;
-  
     // initailly have no working shape
     working = nullptr;
 }
@@ -30,18 +30,50 @@ Canvas::Canvas()
 void 
 Canvas::display()
 {
-    // display the shapes
-    for(auto itr = shapeList.begin(); itr != shapeList.end(); itr++) {
-        (*itr)->display();
+   ostream& (*array[8]) (ostream&) = {white, black, cyan, magenta, yellow, green, blue, red};
+     // display the shapes
+    for(int i = 0; i < shapeList.size(); i++) {
+	    cout << array[colorList[i]];
+        shapeList[i]->display();
     }
-    cout << cursorPosition(cx, cy) << '+';
+    cout << cursorPosition(0,2) << "Pick a color for the shape: " << endl;
+    cout << cursorPosition(2,3) << "0. White " << endl;
+    cout << cursorPosition(2,4) << "1. Black " << endl;
+    cout << cursorPosition(2,5) << "2. Cyan " << endl;
+    cout << cursorPosition(2,6) << "3. Magenta " << endl;
+    cout << cursorPosition(2,7) << "4. Yellow " << endl;
+    cout << cursorPosition(2,8) << "5. Green " << endl;
+    cout << cursorPosition(2,9) << "6. Blue " << endl;
+    cout << cursorPosition(2,10) << "7. Red " << endl;
+    cout << cursorPosition(100,70) << "(P)oint (L)ine (R)ectangle (Q)uadrangle (T)riangle (H)exagon (S)ierpinski";
+    cout << cursorPosition(cx, cy)  << '+';
     cout.flush();
 }
-
+   
+void Canvas::colorShape (){
+   ostream& (*array[8]) (ostream&) = {white, black, cyan, magenta, yellow, green, blue, red};
+    
+    cout << cursorPosition(0,2) << "Pick a color for the shape: \n";
+    cout << cursorPosition(2,3) << "0. White \n";
+    cout << cursorPosition(2,4) << "1. Black \n";
+    cout << cursorPosition(2,5) << "2. Cyan \n";
+    cout << cursorPosition(2,6) << "3. Magenta \n";
+    cout << cursorPosition(2,7) << "4. Yellow \n";
+    cout << cursorPosition(2,8) << "5. Green \n";
+    cout << cursorPosition(2,9) << "6. Blue \n";
+    cout << cursorPosition(2,10) << "7. Red \n";
+            cin >> choice;
+     if(choice>=0 and choice<8){
+           colorList.push_back(choice);
+           cout << array[choice] << endl;
+     }
+}
 
 void
 Canvas::handleEvent(Event *e) 
 {
+   ostream& (*array[8]) (ostream&) = {white, black, cyan, magenta, yellow, green, blue, red};
+    
     KeyboardEvent *kb;
 
     if(e->type() == "keyboard") {
@@ -62,19 +94,70 @@ Canvas::handleEvent(Event *e)
 	case ENTER:
 	    cursorAddPoint();
 	    break;
-
-	case 'h':
+   
+        case '0':
+            if(working == nullptr){
+                cout << white;
+                colorList.push_back(0);
+            }
+            break;
+        case '1':
+            if(working == nullptr){
+                cout << black;
+                colorList.push_back(1);
+            }
+            break;
+        case '2':
+            if(working == nullptr){
+                cout << cyan;
+                colorList.push_back(2);
+            }
+            break;
+        case'3':
+            if(working == nullptr){
+                cout << magenta;
+                colorList.push_back(3);
+            }
+            break;
+        case '4':
+            if(working == nullptr){
+                cout << yellow;
+                colorList.push_back(4);
+            }
+            break;
+        case '5':
+            if(working == nullptr){
+                cout << green;
+                colorList.push_back(5);
+            }
+            break;
+        case '6':
+            if(working == nullptr){
+                cout << blue;
+                colorList.push_back(6);
+            }
+            break;
+        case '7':
+            if(working == nullptr){
+                cout << red;
+                colorList.push_back(7);
+            }
+            break;
+            
+    case 'h':
 	case 'H':
 	    if(working == nullptr) {
 		working = new Hexagon();
 		cursorAddPoint();
-	    }
+                cout << cursorPosition(0,0) << clearLine << "Hexagon:" << "/4" << endl;
+        }
 	    break;
 	case 'q':
 	case 'Q':
 	    if(working == nullptr) {
 		working = new Quadrangle();
 		cursorAddPoint();
+            cout << cursorPosition(0,0) << clearLine << "Quadrangle:" << endl;
 	    }
 	    break;
 	case 'r':
@@ -82,13 +165,15 @@ Canvas::handleEvent(Event *e)
 	    if(working == nullptr) {
 		working = new Rectangle();
 		cursorAddPoint();
-	    }
+            cout << cursorPosition(0,0) << clearLine << "Rectangle" << endl;
+        }
 	    break;
 	case 's':
 	case 'S':
 	    if(working==nullptr) {
 		working = new Sierpinski();
 		cursorAddPoint();
+            cout << cursorPosition(0,0) << clearLine << "Sierpinski" << endl;
 	    }
 	    break;
 	case 't':
@@ -96,6 +181,7 @@ Canvas::handleEvent(Event *e)
 	    if(working==nullptr) {
 		working = new triangle();
 		cursorAddPoint();
+            cout << cursorPosition(0,0) << clearLine << "Triangle:" << "/2" << endl;
 	    }
 	    break;
 	case 'p':
@@ -103,6 +189,7 @@ Canvas::handleEvent(Event *e)
 	    if(working == nullptr) {
 		working = new Point();
 		cursorAddPoint();
+            cout << cursorPosition(0,0) << clearLine << "Point" << normal << endl;
 	    }
 	    break;
 	case 'l':
@@ -110,19 +197,16 @@ Canvas::handleEvent(Event *e)
 	    if(working == nullptr) {
 		working = new Line();
 		cursorAddPoint();
+            cout << cursorPosition(0,0) << clearLine << "Line" << normal << endl;
 	    }
 	    break;
 	case ESC:
 	    if(_parent) ((Application*)_parent)->running(false);
 	    break;
-
-	}
+    }
 	display();
     }
 }
-
-
-
 
 //some parenting magic
 void
@@ -202,8 +286,7 @@ Canvas::cursorAddPoint()
 
     // add to the shape
     working->addPoint(cx, cy);
-
-
+ 
     // if the shape is complete, add it to the list
     if(working->isComplete()) {
         shapeList.push_back(working);
